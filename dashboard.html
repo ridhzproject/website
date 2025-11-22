@@ -1,0 +1,68 @@
+<!DOCTYPE html>
+<html lang="id">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Dashboard</title>
+    <link rel="stylesheet" href="css/style.css">
+</head>
+<body>
+    <div class="dashboard">
+        <div class="card header-section">
+            <div class="flex-row">
+                <div>
+                    <h2 id="welcome-msg">Halo, User! 👋</h2>
+                    <p id="current-date" style="color: var(--text-muted)">...</p>
+                </div>
+                <div style="text-align: right;">
+                    <h1 id="digital-clock">00:00</h1>
+                    <button class="btn-small btn-danger" onclick="handleLogout()">Logout</button>
+                </div>
+            </div>
+            <div class="quote-box" style="margin-top: 15px; font-style: italic;">
+                "<span id="quote-text">Loading...</span>"
+            </div>
+        </div>
+
+        <div class="card">
+            <h3>📚 Pelajaran Saat Ini</h3>
+            <div id="current-lesson-box">
+                <div class="highlight" id="lesson-now">-</div>
+                <p id="lesson-time">-</p>
+                <p style="margin-top:10px; color: var(--text-muted);">Selanjutnya: <span id="lesson-next">-</span></p>
+            </div>
+        </div>
+
+        <div class="card">
+            <div class="flex-row">
+                <h3>🕌 Jadwal Sholat</h3>
+                <button class="btn-small" onclick="changeCity()">Ganti Kota</button>
+            </div>
+            <p id="location-name" style="font-size: 0.8rem; color: var(--success);">Loading...</p>
+            <div id="sholat-list" style="margin-top: 10px;">
+                </div>
+        </div>
+
+        <div class="card header-section">
+            <h3>📝 Tugas & Reminder</h3>
+            <div class="flex-row" style="margin: 10px 0;">
+                <input type="text" id="task-input" placeholder="Tulis tugas..." style="max-width: 70%;">
+                <button onclick="addTask()" style="width: auto;">+</button>
+            </div>
+            <ul id="reminder-list"></ul>
+        </div>
+        
+        <div class="card header-section">
+            <h3 onclick="toggleSchedule()" style="cursor:pointer; display:flex; justify-content:space-between;">
+                📅 Lihat Jadwal Lengkap (Klik) <span>⬇️</span>
+            </h3>
+            <div id="full-schedule" class="hidden" style="margin-top: 15px;">
+                </div>
+        </div>
+    </div>
+
+    <script src="js/db.js"></script>
+    <script src="js/sholat.js"></script>
+    <script src="js/app.js"></script>
+</body>
+</html>
